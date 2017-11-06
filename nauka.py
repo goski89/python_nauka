@@ -1,3 +1,20 @@
+from operator import itemgetter
+
+def most_fequent(lista):
+    lista2 = tuple(lista.lower())
+    char_lista2 = (set(lista2))
+    a = []
+    for i in range(0,len(char_lista2)):
+        a.append(0)
+    lista3 = list(zip(char_lista2,a))
+    lista3 = dict(lista3)
+    for x in lista3:
+        for y in lista2:
+            if x ==y:
+                lista3[x]+=1
+    lista3 = tuple(zip(lista3.keys(), lista3.values()))
+    lista3 = sorted(lista3, key=itemgetter(1), reverse=1)
+    print ((lista3))
 
 def censor(line, word):
     zdanie = line.split(' ')
