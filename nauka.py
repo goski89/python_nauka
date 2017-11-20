@@ -70,3 +70,22 @@ def flip_bit(number, n):
   mask = 0b00000001 << (n-1)
   result = number ^ mask
   return bin(result)
+
+
+def rotate_word(tekst, m):
+    alfabet_p = 'aąbcćdeęfghijklłmnńoópqrsśtuvwxyzźż'
+    alfabet = 'abcdefghijklmnopqrstuvwxyz'
+    tekst = tekst.lower()
+    new_tekst = ''
+    print (tekst)
+
+    for x in tekst:
+        for y in alfabet:
+            if x == y:
+                if (alfabet.find(y)) + s < 0:
+                    new_tekst += alfabet[0]
+                elif (alfabet.find(y) + s) > (len(alfabet)-1):
+                    new_tekst += alfabet[len(alfabet)-1]
+                else:
+                    new_tekst += alfabet[alfabet.find(y) + s]
+    print (new_tekst)
