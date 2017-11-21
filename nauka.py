@@ -96,3 +96,48 @@ def nested_sum(lista):
         for y in x:
             count+=y
     return count
+
+def cumsum(lista):
+    lista2=[]
+    count = 0
+    for x in lista:
+        count+=x
+        lista2.append(count)
+    return lista2
+
+def middle(lista):
+    lista2 = []
+    count = 0
+    for x in lista:
+        if 0<count<len(lista):
+            lista2.append(x)
+        count+=1
+    return lista2
+
+def chop(lista):
+    lista2 = []
+    count = 0
+    for x in lista:
+        if 0==count or count==(len(lista)-1):
+            lista.remove(x)
+        count+=1
+    print(lista)
+   
+
+def is_sorted(lista):
+    lista2 = sorted(lista)
+    if lista2 == lista:
+        return True
+    else:
+        return False
+    
+def is_anagram(s1, s2):
+    if len(s1)==len(s2):
+        s12 = sorted(list(s1))
+        s22 = sorted(list(s2))
+        if s12==s22:
+            return True
+        else:
+            return False
+    else:
+        return False
