@@ -89,3 +89,10 @@ def rotate_word(tekst, m):
                 else:
                     new_tekst += alfabet[alfabet.find(y) + s]
     print (new_tekst)
+    
+def nested_sum(lista):
+    count = 0
+    for x in lista:
+        for y in x:
+            count+=y
+    return count
