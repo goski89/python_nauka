@@ -141,3 +141,30 @@ def is_anagram(s1, s2):
             return False
     else:
         return False
+
+def has_duplicate(s1):
+    s11=sorted(s1)
+    count = 0
+    ok = 0
+    for x in s11:
+        if count<(len(s11)-1):
+            if x == s11[count+1]:
+                ok+=1
+        count+=1
+    if ok>0: return True
+    else: return False
+
+def reverse_pair(lista):
+    s11=[]
+    s11.extend(lista)
+    lista3 = []
+    for x in s11:
+        for y in s11:
+            if x==y[::-1]:
+                lista2=[]
+                lista2.append(x)
+                lista2.append(y)
+                lista3.append(lista2)
+                s11.remove(y)
+
+    print (lista,'\n', lista3)   
