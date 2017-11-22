@@ -15,6 +15,16 @@ def most_fequent(lista):
     lista3 = tuple(zip(lista3.keys(), lista3.values()))
     lista3 = sorted(lista3, key=itemgetter(1), reverse=1)
     print ((lista3))
+    
+def histogram(s):
+    d = dict()
+    for c in s:
+        if c not in d:
+            d[c] = 1
+        else:
+            d[c] +=1
+    return d
+
 
 def censor(line, word):
     zdanie = line.split(' ')
