@@ -43,12 +43,16 @@ def censor(line, word):
 
     wyraz = ''.join(wyraz)
     print (wyraz)
+
+
 def count(sequence, item):
     ilosc = 0
     for x in sequence:
         if x == item:
             ilosc+=1
     return ilosc
+
+
 def purify(lista):
     lista2 = []
     poz = len(lista) - 1
@@ -57,6 +61,8 @@ def purify(lista):
             lista2.append(x)
 
     return lista2
+
+
 def remove_duplicates(lista):
     lista2 = []
 
@@ -66,6 +72,8 @@ def remove_duplicates(lista):
         if x > lista2[-1]:
             lista2.append(x)
     return lista2
+
+
 def mediana(lista):
     lista2=sorted(lista)
     if len(lista)%2 == 0:
@@ -76,6 +84,8 @@ def mediana(lista):
         temp = lista[int(len(lista)/2-1)]
 
     return temp
+
+
 def flip_bit(number, n):
   mask = 0b00000001 << (n-1)
   result = number ^ mask
@@ -178,3 +188,73 @@ def reverse_pair(lista):
                 s11.remove(y)
 
     print (lista,'\n', lista3)   
+
+def invert_dict(s):
+    a = dict()
+    for x in s:
+        if s[x] not in a:
+            a[s[x]] = x
+        else:
+            a[s[x]].append(x)
+    return a
+
+def invert_dict_2(s):
+    a = dict()
+    for x in s:
+        if s[x] not in a:
+            a.setdefault(s[x],x)
+        else:
+            a[s[x]].append(x)
+    return a
+
+def fibonacci(x):
+    if x==0:
+        return 0
+    elif x == 1:
+        return 1
+    else:
+        return fibonacci(x-1)+fibonacci(x-2)
+
+
+d = {0:0, 1:1}
+def fibonacci2(x):
+    if x in d:
+        return d[x]
+    d[x] = fibonacci2(x-1)+fibonacci2(x-2)
+    return fibonacci2(x-1)+fibonacci2(x-2)
+
+def read_to_dict(lista, word):
+    lista2 = dict()
+    for x in lista:
+        lista2[x] = 1
+    if word in lista2:
+        return lista2, True
+    else:
+        return lista2, False
+
+def ack(m,n):
+    if m ==0:
+        return n+1
+    elif m>0 and n == 0:
+        return ack(m-1,1)
+    elif m>0 and n>0:
+        return ack(m-1, ack(m,n-1))
+
+def has_duplicates_2(lista):
+    a=dict()
+    count = 0
+    for k in lista:
+        if k not in a: a[k]=0
+        else: a[k]+=1
+    for k in a:
+        if a[k] >0: return True
+        else: return False
+        
+def rotate_word_2(lista):
+    d=dict()
+    for w in lista:
+        for y in lista:
+            if w==y[::-1]:
+                d[w] = y
+                lista.remove(y)
+    return d
