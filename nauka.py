@@ -260,21 +260,42 @@ def rotate_word_2(lista):
     return d
 
 
-import math
-class circle():
-    """Test"""
-    class center:
-        def __init__(self,x,y):
-            self.x = x
-            self.y = y
+from math import  sqrt
 
-    def __init__(self,center,radius):
-        self.center.x, self.center.y = center
+class point:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+class rect:
+    def __init__(self,corner,width,height):
+        self.corner = corner
+        self.width = width
+        self.height = height
+
+    def rect_corners(self):
+        p11 = self.corner.x, self.corner.y
+        p12 = self.corner.x+self.width, self.corner.y
+        p22 = self.corner.x+self.width, self.corner.y - self.height
+        p21 = self.corner.x, self.corner.y - self.height
+        return p11,p12,p22,p21
+
+class circle:
+    def __init__(self, center, radius):
+        self.center = center
         self.radius = radius
 
-    def point_in_circle(self,a,b):
-        rab = math.sqrt(((a-self.center.x)**2)+((b-self.center.y)**2))
-        if rab <= self.radius:
+    def point_in_circle(self,point):
+        px,py=point
+        radius_p = sqrt((px-self.center.x)**2+(py-self.center.y)**2)
+        if radius_p <= self.radius:
+            return True
+        else:
+            return False
+        
+    def rect_in_circle(self, rect):
+        a,b,c,d = rect.rect_corners()
+        if self.point_in_circle(a) and self.point_in_circle(b) and self.point_in_circle(c) and self.point_in_circle(d):
             return True
         else:
             return False
