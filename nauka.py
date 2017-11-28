@@ -258,3 +258,23 @@ def rotate_word_2(lista):
                 d[w] = y
                 lista.remove(y)
     return d
+
+
+import math
+class circle():
+    """Test"""
+    class center:
+        def __init__(self,x,y):
+            self.x = x
+            self.y = y
+
+    def __init__(self,center,radius):
+        self.center.x, self.center.y = center
+        self.radius = radius
+
+    def point_in_circle(self,a,b):
+        rab = math.sqrt(((a-self.center.x)**2)+((b-self.center.y)**2))
+        if rab <= self.radius:
+            return True
+        else:
+            return False
