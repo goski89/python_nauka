@@ -1,0 +1,13 @@
+f=10 #frequency in HZ
+    pwmPIN = 18
+    dc = 1 #duty cycle - wypełnienie
+    gpio.setup(pwmPIN, gpio.OUT)
+    pwm = gpio.PWM(pwmPIN,f)
+    pwm.start(dc)
+    manager.add_message('PWM wystartował!')
+    while dc <100:
+        pwm.ChangeDutyCycle(dc)
+        time.sleep(0.3)
+        dc+=1
+        if dc%10 == 0:
+            manager.add_message('Wartość wypełnienia: {}'.format(dc))
